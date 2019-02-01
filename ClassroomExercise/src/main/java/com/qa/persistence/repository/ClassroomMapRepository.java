@@ -54,18 +54,5 @@ public class ClassroomMapRepository implements ClassroomRepository{
 		}			
 		return count;
 	}
-
-	@Override
-	public String createClassroomRequest(Long classroom) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String addClassroom(String classroom) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
 

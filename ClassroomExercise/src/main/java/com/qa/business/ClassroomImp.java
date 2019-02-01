@@ -18,12 +18,12 @@ public class ClassroomImp implements ClassroomBookingService {
 		return repo.getAllRooms();
 	}
 
-	public String addClassroom(String classroom) {
-		Classroom accountObject = util.getObjectForJSON(classroom, Classroom.class);
-		if (accountObject.getClassroomNumber().equals("9")) {
+	public String createClassroomRequest(String classroom) {
+		Classroom classroomObject = util.getObjectForJSON(classroom, Classroom.class);
+		if (classroomObject.getClassroomNumber().equals("9")) {
 			return "{\"message\": \"This classroom is blocked!\"}";
 		}	
-		return repo.addClassroom(classroom);
+		return repo.createClassroomRequest(classroom);
 	}
 
 	@Override

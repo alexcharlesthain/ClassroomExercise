@@ -18,7 +18,7 @@ import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
 @Default
-public class AccountDBRepository implements ClassroomRepository {
+public class ClassroomDBRepository implements ClassroomRepository {
 	
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
@@ -35,59 +35,48 @@ public class AccountDBRepository implements ClassroomRepository {
 	}
 	
 	@Override
-	public String getAllAccounts() {
-		Query query = em.createQuery("SELECT a FROM Classroom a");
-		Collection<Classroom> allAccounts = (Collection<Classroom>) query.getResultList();
-		return util.getJSONForObject(allAccounts);
+	public String findClassroom(Long id) {
+		Query query = em.createQuery("Select a FROM Classroom a WHERE id = "+id+"");
+		Collection<Classroom> accounts = (Collection<Classroom>) query.getResultList();
+		return util.getJSONForObject(accounts);
 	}
-	
-//	@Override
-//	public String findAccount(Long id) {
-//		Query query = em.createQuery("Select a FROM Classroom a WHERE id = "+id+"");
-//		Collection<Classroom> accounts = (Collection<Classroom>) query.getResultList();
-//		return util.getJSONForObject(accounts);
-//	}
 	
 	@Override
 	@Transactional(REQUIRED)
-	public String updateAccount(Long id, String account) {
-		String accountInDB = findAccount(id);
+	public String updateClassroomRequest(Long id, String account) {
+		String accountInDB = findClassroom(id);
 		if (accountInDB != null) {
 			em.remove(accountInDB);
 			Classroom anAccount = util.getObjectForJSON(account, Classroom.class);
 			em.persist(anAccount);
-			return "{\"message\": \"classroom sucessfully updated\"}";
+			return "{\"message\": \"classroom request sucessfully updated\"}";
 		}
-		return "{\"message\": \"classroom not found\"}";
+		return "{\"message\": \"classroom request not found\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
-	public String createAccount(String account) {
+	public String createClassroomRequest(String account) {
 		Classroom anAccount = util.getObjectForJSON(account, Classroom.class);
 		em.persist(anAccount);
-		return "{\"message\": \"classroom has been sucessfully added\"}";
+		return "{\"message\": \"classroom request has been sucessfully added\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteAccount(Long id) {
-		String accountInDB = findAccount(id);
+	public String deleteClassroomRequest(Long id) {
+		String accountInDB = findClassroom(id);
 		if (accountInDB != null) {
 			em.remove(accountInDB);
 		}
-		return "{\"message\": \"classroom sucessfully deleted\"}";
+		return "{\"message\": \"classroom request sucessfully deleted\"}";
 	}
 	
 	public void setUtil(JSONUtil util) {
 		this.util = util;
 	}
 
-	@Override
-	public String findAccount(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
 
 

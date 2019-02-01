@@ -4,7 +4,7 @@ public interface ClassroomBookingService {
 	
 	String getAllRooms();
 
-	String addClassroom(String classroom);
+	String createClassroomRequest(String classroom);
 
 	String deleteClassroomRequest(Long id, String classroom);
 	

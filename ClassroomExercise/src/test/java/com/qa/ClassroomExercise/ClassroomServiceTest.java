@@ -37,14 +37,14 @@ public class ClassroomServiceTest {
 		Assert.assertEquals("Created new request with the First Name: John. Last Name: Gordon. Teaching Trainee with the First Name: Mark. Last Name: Smith. Classroom Number: 1345", reply);
 	}
 
-//	@Test
-//	public void removeAccountTest() {
-//		repo.createAccount(MOCK_DATA_ARRAY_THREE);
-//		repo.deleteAccount(4322L);
-//		Assert.assertEquals(0 ,repo.returnSize());
-//		
-//	}
-//	
+	@Test
+	public void removeClassroomTest() {
+		repo.createClassroomRequest(MOCK_DATA_ARRAY_TWO);
+		repo.deleteClassroomRequest(1345L);
+		Assert.assertEquals(0 ,repo.returnSize());
+		
+	}
+	
 //	@Test
 //	public void remove2AccountTest() {
 //		String reply = repo.deleteAccount(4321L);

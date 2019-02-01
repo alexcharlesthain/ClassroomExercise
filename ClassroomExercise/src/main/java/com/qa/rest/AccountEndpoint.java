@@ -17,32 +17,32 @@ public class AccountEndpoint {
 	@Inject
 	private ClassroomBookingService service;
 
-	@Path("/getAllAccounts")
+	@Path("/getAllRooms")
 	@GET
 	@Produces({ "application/json" })
-	public String getAllAccounts() {
-		return service.getAllAccounts();
+	public String getAllRooms() {
+		return service.getAllRooms();
 	}
 
-	@Path("/createAccount")
+	@Path("/createClassroomRequest")
 	@POST
 	@Produces({ "application/json" })
-	public String addAccount(String account) {
-		return service.addAccount(account);
+	public String createClassroomRequest(String classroom) {
+		return service.createClassroomRequest(classroom);
 	}
 	
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") Long id, String account) {
-		return service.updateAccount(id, account);
+	public String updateAccount(@PathParam("id") Long id, String classroom) {
+		return service.updateClassroomRequest(id, classroom);
 	}
 
-	@Path("/deleteAccount/{id}")
+	@Path("/deleteClassroomRequest/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteAccount(@PathParam("id") Long id) {
-		return service.deleteAccount(id);
+	public String deleteClassroomRequest(@PathParam("id") Long id, String classroom) {
+		return service.deleteClassroomRequest(id, classroom);
 	}
 
 	public void setService(ClassroomBookingService service) {
