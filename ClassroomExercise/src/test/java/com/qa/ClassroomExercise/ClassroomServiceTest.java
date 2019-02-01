@@ -19,7 +19,7 @@ public class ClassroomServiceTest {
 	private static final String MOCK_DATA_ARRAY_FOUR = "{\"TrainerFirstName\":\"Dale\",\"TrainerLastName\":\"Carr\",\"classroomNumber\":\"1395\"}";
 	private static final String MOCK_DATA_ARRAY_FIVE = "{\"TrainerFirstName\":\"Jim\",\"TrainerLastName\":\"Bob\",\"classroomNumber\":\"1245\"}";
 	
-	@Before
+	/*@Before
 	public void setup() {
 		repo = new ClassroomMapRepository();
 	}
