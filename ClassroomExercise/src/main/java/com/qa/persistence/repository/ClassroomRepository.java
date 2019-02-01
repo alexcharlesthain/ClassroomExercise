@@ -4,8 +4,8 @@ public interface ClassroomRepository {
 
 	String getAllRooms();
 	String createClassroomRequest(String classroom);
-	String deleteClassroomRequest(Long id);
-	String updateClassroomRequest(Long id, String classroom);
-	String findClassroom(Long id);
+	String deleteClassroomRequest(Integer id);
+	String findClassroom(Integer id);
+	String updateClassroomRequest(Integer id, String classroom);
 
 }

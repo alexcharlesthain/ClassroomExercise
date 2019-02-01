@@ -6,8 +6,8 @@ public interface ClassroomBookingService {
 
 	String createClassroomRequest(String classroom);
 
-	String deleteClassroomRequest(Long id, String classroom);
-	
-	String updateClassroomRequest(Long id, String classroom);
+	String deleteClassroomRequest(Integer id);
+
+	String updateClassroomRequest(Integer id, String classroom);
 
 }

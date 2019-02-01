@@ -7,6 +7,7 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import com.qa.persistence.domain.Classroom;
 import com.qa.util.JSONUtil;
+import com.qa.persistence.repository.ClassroomRepository;
 
 @Alternative
 public class ClassroomMapRepository implements ClassroomRepository{
@@ -24,35 +25,47 @@ public class ClassroomMapRepository implements ClassroomRepository{
 		return classroom.size();
 	}
 
-	public String createClassroomRequest(String classroomData) {
-		Classroom newRoomRequest = util.getObjectForJSON(classroomData, Classroom.class);
-		classroom.put(Long.parseLong(newRoomRequest.getClassroomNumber()), newRoomRequest);
-		return "Created new classroom with the First Name: " + newRoomRequest.getFirstName() + ". Last Name: " + newRoomRequest.getSecondName()+ ". Classroom Number: " + newRoomRequest.getClassroomNumber();
+	/*public String createClassroomRequest(Integer classroomId, String classroom) {
+		Classroom newRoomRequest = util.getObjectForJSON(classroom, Classroom.class);
+		classroom.put(Integer.parseInt(newRoomRequest.getClassroomId()), newRoomRequest);
+		return "Created new classroom request with trainer: " + newRoomRequest.getTrainerName()+ ". Classroom Number: " + newRoomRequest.getClassroomId();
+	}*/
+
+	public String deleteClassroomRequest(Integer classroomId) {
+		classroom.remove(classroomId);
+		return "Removed classroom with the ID: "+classroomId+".";
 	}
 
-	public String deleteClassroomRequest(Long id) {
-		classroom.remove(id);
-		return "Removed classroom with the ID: "+id+".";
-	}
-
-	public String updateClassroomRequest(Long id, String classroomData) {
-		Classroom updRequest = util.getObjectForJSON(classroomData, Classroom.class);
-		classroom.replace(id, classroom.get(id), updRequest);
-		return "Updated Classroom: " +id+ " with data: First Name: " + updRequest.getFirstName() + ". Last Name: " + updRequest.getSecondName()+ ". Classroom Number: " + updRequest.getClassroomNumber();
-	}
+	/*public String updateClassroomRequest(Integer classroomId, String classroom) {
+		Classroom updRequest = util.getObjectForJSON(classroom, Classroom.class);
+		classroom.replace(classroomId, classroom.get(classroomId), updRequest);
+		return "Updated Classroom: " +classroomId+ " with Trainer Name: " + updRequest.getTrainerName()+ ". Classroom Number: " + updRequest.getClassroomId();
+	}*/
 	
-	public String findClassroom(Long id) {
+	public String findClassroom(Integer id) {
 		return util.getJSONForObject(classroom.get(id));
 	}	
 	
 	public int getClassroomByName(String name) {
 		int count = 0;
 		for(Classroom classroom: classroom.values()) {
-			if(classroom.getFirstName().equals(name)) {
+			if(classroom.getTrainerName().equals(name)) {
 			count++;	
 			}
 		}			
 		return count;
+	}
+
+	@Override
+	public String createClassroomRequest(String classroom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateClassroomRequest(Integer id, String classroom) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

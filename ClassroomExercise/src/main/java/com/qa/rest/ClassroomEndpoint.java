@@ -11,8 +11,8 @@ import javax.ws.rs.Produces;
 
 import com.qa.business.ClassroomBookingService;
 
-@Path("/classroom")
-public class AccountEndpoint {
+@Path("/Classroom")
+public class ClassroomEndpoint {
 	
 	@Inject
 	private ClassroomBookingService service;
@@ -34,15 +34,15 @@ public class AccountEndpoint {
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") Long id, String classroom) {
+	public String updateAccount(@PathParam("id") Integer id, String classroom) {
 		return service.updateClassroomRequest(id, classroom);
 	}
 
 	@Path("/deleteClassroomRequest/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteClassroomRequest(@PathParam("id") Long id, String classroom) {
-		return service.deleteClassroomRequest(id, classroom);
+	public String deleteClassroomRequest(@PathParam("id") Integer id) {
+		return service.deleteClassroomRequest(id);
 	}
 
 	public void setService(ClassroomBookingService service) {

@@ -20,19 +20,19 @@ public class ClassroomImp implements ClassroomBookingService {
 
 	public String createClassroomRequest(String classroom) {
 		Classroom classroomObject = util.getObjectForJSON(classroom, Classroom.class);
-		if (classroomObject.getClassroomNumber().equals("9")) {
+		if (classroomObject.getClassroomId().equals("9")) {
 			return "{\"message\": \"This classroom is blocked!\"}";
 		}	
 		return repo.createClassroomRequest(classroom);
 	}
 
 	@Override
-	public String deleteClassroomRequest(Long id, String classroom) {
+	public String deleteClassroomRequest(Integer id) {
 		return repo.deleteClassroomRequest(id);
 	}
 	
 	@Override
-	public String updateClassroomRequest(Long id, String classroom) {
+	public String updateClassroomRequest(Integer id, String classroom) {
 		return repo.updateClassroomRequest(id, classroom);
 	}
 
