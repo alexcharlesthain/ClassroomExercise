@@ -1,0 +1,9 @@
+com\qa\persistence\repository\ClassroomRepository.class
+com\qa\rest\AccountEndpoint.class
+com\qa\persistence\repository\ClassroomMapRepository.class
+com\qa\business\ClassroomImp.class
+com\qa\util\JSONUtil.class
+com\qa\persistence\repository\ClassroomDBRepository.class
+com\qa\business\ClassroomBookingService.class
+com\qa\persistence\domain\Classroom.class
+com\qa\rest\JAXActivator.class
