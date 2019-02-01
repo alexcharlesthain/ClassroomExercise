@@ -31,20 +31,20 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	public String getAllRooms() {
 		Query query = em.createQuery("SELECT a FROM Classroom a");
 		List<Classroom> classrooms = query.getResultList();
-		return classrooms.toString(); 
+		return util.getJSONForObject(classrooms); 
 	}
 	
 	@Override
-	public String findClassroom(Integer id) {
-		Query query = em.createQuery("SELECT a FROM Classroom a WHERE id = "+id+"");
-		Collection<Classroom> accounts = (Collection<Classroom>) query.getResultList();
-		return util.getJSONForObject(accounts);
+	public String findClassroom(Integer classroomId) {
+		Query query = em.createQuery("SELECT a FROM Classroom a WHERE id = "+classroomId+"");
+		Collection<Classroom> classrooms = (Collection<Classroom>) query.getResultList();
+		return util.getJSONForObject(classrooms);
 	}
 	
 	@Override
 	@Transactional(REQUIRED)
-	public String updateClassroomRequest(Integer id, String classroom) {
-		String accountInDB = findClassroom(id);
+	public String updateClassroomRequest(Integer classroomId, String classroom) {
+		String accountInDB = findClassroom(classroomId);
 		if (accountInDB != null) {
 			em.remove(accountInDB);
 			Classroom anAccount = util.getObjectForJSON(classroom, Classroom.class);
@@ -65,8 +65,8 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteClassroomRequest(Integer id) {
-		String accountInDB = findClassroom(id);
+	public String deleteClassroomRequest(Integer classroomId) {
+		String accountInDB = findClassroom(classroomId);
 		if (accountInDB != null) {
 			em.remove(accountInDB);
 		}

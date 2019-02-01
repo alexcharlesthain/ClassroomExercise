@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Table(name = "Trainee")
-@Entity(name = "Trainee")
+
+@Entity
 public class Trainee {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)	
-	@Column(name = "traineeId")
+	
 	private Integer traineeId;
 
 	public Trainee() {

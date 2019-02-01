@@ -1,5 +1,4 @@
 com\qa\rest\ClassroomEndpoint.class
-com\qa\persistence\repository\ClassroomMapRepository.class
 com\qa\persistence\repository\TraineeDBRepository.class
 com\qa\business\ClassroomImp.class
 com\qa\persistence\repository\TraineeRepository.class
@@ -9,7 +8,6 @@ com\qa\persistence\repository\ClassroomDBRepository.class
 com\qa\business\ClassroomBookingService.class
 com\qa\persistence\repository\ClassroomRepository.class
 com\qa\business\TraineeService.class
-com\qa\persistence\repository\TraineeMapRepository.class
 com\qa\util\JSONUtil.class
 com\qa\persistence\domain\Classroom.class
 com\qa\persistence\domain\Trainee.class

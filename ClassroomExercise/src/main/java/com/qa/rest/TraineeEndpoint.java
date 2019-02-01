@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 
 import com.qa.persistence.repository.TraineeDBRepository;
 
-@Path("/classroom")
+@Path("/trainee")
 public class TraineeEndpoint {
 	
 	@Inject

@@ -19,10 +19,10 @@ public class TraineeImp implements TraineeService {
 	}
 
 	public String createTrainee(String lastName) {
-		Classroom traineeObject = util.getObjectForJSON(lastName, Classroom.class);
-		if (traineeObject.getClassroomId().equals("2")) {
-			return "{\"message\": \"This trainee is blocked!\"}";
-		}	
+//		Classroom traineeObject = util.getObjectForJSON(lastName, Classroom.class);
+//		if (traineeObject.getClassroomId().equals("2")) {
+//			return "{\"message\": \"This trainee is blocked!\"}";
+//		}	
 		return repo.createTrainee(lastName);
 	}
 

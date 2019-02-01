@@ -13,20 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Table(name = "Classroom")
-@Entity(name = "Classroom")
+
+@Entity
 public class Classroom {
 	
-	@OneToMany(mappedBy = "Classroom",
+	/*@OneToMany(mappedBy = "Classroom",
 	        cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER)
 	private Collection<Trainee> trainees = new LinkedHashSet<Trainee>();
-	
+	*/
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)	
-	@Column(name = "trainerName")
-	private String trainerName;
-	@Column(name = "classroomNumber")
+	
 	private Integer classroomId;
-
+	private String trainerName;
 	public Classroom() {
 
 	}

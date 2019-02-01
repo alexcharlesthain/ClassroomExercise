@@ -19,10 +19,6 @@ public class ClassroomImp implements ClassroomBookingService {
 	}
 
 	public String createClassroomRequest(String classroom) {
-		Classroom classroomObject = util.getObjectForJSON(classroom, Classroom.class);
-		if (classroomObject.getClassroomId().equals("9")) {
-			return "{\"message\": \"This classroom is blocked!\"}";
-		}	
 		return repo.createClassroomRequest(classroom);
 	}
 
