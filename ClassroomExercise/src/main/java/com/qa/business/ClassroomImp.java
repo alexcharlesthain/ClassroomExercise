@@ -3,40 +3,37 @@ package com.qa.business;
 import javax.inject.Inject;
 
 import com.qa.persistence.domain.Classroom;
+import com.qa.persistence.repository.ClassroomRepository;
 import com.qa.util.JSONUtil;
 
-public class ClassroomImp implements ClassroomService {
+public class ClassroomImp implements ClassroomBookingService {
 
 	@Inject
-	private AccountRepository repo;
+	private ClassroomRepository repo;
 	
 	@Inject
 	private JSONUtil util;
 
-	public String getAllAccounts() {
-		return repo.getAllAccounts();
+	public String getAllRooms() {
+		return repo.getAllRooms();
+	}
+
+	public String createClassroomRequest(String classroom) {
+		return repo.createClassroomRequest(classroom);
 	}
 
 	@Override
-	public String addClassroom(String account) {
-		Classroom accountObject = util.getObjectForJSON(account, Classroom.class);
-		if (accountObject.getClassroomNumber().equals("9")) {
-			return "{\"message\": \"This classroom is blocked!\"}";
-		}	
-		return repo.createAccount(account);
-	}
-
-	@Override
-	public String deleteClassroom(String classroomNumber) {
-		return repo.deleteClassroom(classroomNumber);
+	public String deleteClassroomRequest(Integer id) {
+		return repo.deleteClassroomRequest(id);
 	}
 	
 	@Override
-	public String updateAccount(Long id, String account) {
-		return repo.updateAccount(id, account);
+	public String updateClassroomRequest(Integer id, String classroom) {
+		return repo.updateClassroomRequest(id, classroom);
 	}
 
-	public void setRepo(AccountRepository repo) {
+	public void setRepo(ClassroomRepository repo) {
 		this.repo = repo;
 	}
+
 }
