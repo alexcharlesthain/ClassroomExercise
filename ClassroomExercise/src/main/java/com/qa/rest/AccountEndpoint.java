@@ -9,13 +9,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.business.ClassroomService;
+import com.qa.business.ClassroomBookingService;
 
 @Path("/classroom")
 public class AccountEndpoint {
 	
 	@Inject
-	private ClassroomService service;
+	private ClassroomBookingService service;
 
 	@Path("/getAllAccounts")
 	@GET
@@ -45,7 +45,7 @@ public class AccountEndpoint {
 		return service.deleteAccount(id);
 	}
 
-	public void setService(ClassroomService service) {
+	public void setService(ClassroomBookingService service) {
 		this.service = service;
 	}
 

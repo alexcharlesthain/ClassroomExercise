@@ -11,8 +11,6 @@ public class Classroom {
 	private Long trainerId;
 	private String firstName;
 	private String lastName;
-	
-	
 	private String classroomNumber;
 
 	public Classroom() {

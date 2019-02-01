@@ -18,7 +18,7 @@ import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
 @Default
-public class AccountDBRepository implements AccountRepository {
+public class AccountDBRepository implements ClassroomRepository {
 	
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
@@ -28,7 +28,7 @@ public class AccountDBRepository implements AccountRepository {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public String getAllAccounts() {
+	public String getAllRooms() {
 		Query query = em.createQuery("SELECT a FROM Classroom a");
 		List<Classroom> classrooms = query.getResultList();
 		return classrooms.toString();
